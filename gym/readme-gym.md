@@ -64,7 +64,7 @@ python ./util/download_d4rl_datasets.py --suite "locomotion" --data-dir /path/to
 
 ## Example usage
 
-Experiments for our Decision Mamba can be reproduced with the following:
+Experiments for our Decision RWKV can be reproduced with the following:
 
 ```bash
 python experiment.py \
@@ -72,7 +72,7 @@ python experiment.py \
         --dataset 'medium' \
         --data_dir_prefix /path/to/data/ \
         --K 20 \
-        --model_type 'dmamba' \
+        --model_type 'dr' \
         --n_layer 3 \
         --embed_dim 256 \
         --activation_function 'gelu' \
@@ -83,7 +83,7 @@ python experiment.py \
         --weight_decay 1e-4 \
         --num_eval_episodes 100 \
         --output /path/to/output \
-        --experiment dmamba_hopper_medium \
+        --experiment dr_hopper_medium \
         --seed 123
 ```
 
