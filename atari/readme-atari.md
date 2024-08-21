@@ -29,7 +29,7 @@ python -m atari_py.import_roms ROMS
 
 ## Example usage
 
-To train a model, e.g. DMamba, run the following:
+To train a model, e.g. DR, run the following:
 
 ```bash
 python train_atari.py \
@@ -38,14 +38,14 @@ python train_atari.py \
         --context_length 30 \
         --n_layer 6 \
         --n_embd 128 \
-        --token_mixer 'mamba' \
+        --token_mixer 'rwkv6' \
         --epochs 10 \
         --batch_size 256 \
         --num_steps 500000 \
         --num_buffers 50 \
         --trajectories_per_buffer 10 \
         --output /path/to/output \
-        --experiment dmamba_breakout \
+        --experiment dr_breakout \
         --seed 123
 ```
 
