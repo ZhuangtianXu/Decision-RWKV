@@ -1,0 +1,47 @@
+python atari/train_atari.py --game 'Qbert' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 10 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --experiment dmamba_breakout --seed 123
+python atari/train_atari.py --game 'Qbert' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 10 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --experiment dr_qbert --seed 123 --log_to_wandb True &
+
+
+
+
+ gsutil -m cp -R gs://atari-replay-datasets/dqn/Seaquest ../../autodl-fs/.sys/tmp/data_atari/dqn_replay
+
+
+nohup python ./train_atari.py --game 'Qbert' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Qbert --seed 123 --log_to_wandb True & wait; \
+
+
+nohup bash -c 'nohup python ./train_atari.py --game 'Breakout' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Breakout --seed 123 --log_to_wandb True ; \
+nohup python ./train_atari.py --game 'Pong' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Pong --seed 123 --learning_rate 6e-5 --log_to_wandb True ; \
+nohup python ./train_atari.py --game 'Seaquest' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Seaquest --seed 123 --learning_rate 6e-5 --log_to_wandb True' &
+
+nohup bash -c 'nohup python ./train_atari.py --game 'Breakout' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Breakout --seed 123 --log_to_wandb True ; \
+nohup python ./train_atari.py --game 'Pong' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 50 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Pong --seed 123 --learning_rate 6e-5 --log_to_wandb True; \
+nohup python ./train_atari.py --game 'Seaquest' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Seaquest --seed 123 --learning_rate 6e-5 --log_to_wandb True' &
+
+
+#### 最新的
+nohup bash -c 'nohup python ./train_atari.py --game 'Qbert' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Qbert --seed 231 --log_to_wandb True & ; \
+nohup python ./train_atari.py --game 'Qbert' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 50000 --num_buffers 50 --trajectories_per_buffer 10 --learning_rate 1e-3 --output ./output/train --experiment dr_Qbert --seed 999 --log_to_wandb True & ; \
+nohup python ./train_atari.py --game 'Breakout' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Breakout --seed 666 --log_to_wandb True ; \
+nohup python ./train_atari.py --game 'Breakout' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Breakout --seed 321 --log_to_wandb True ; \
+nohup python ./train_atari.py --game 'Pong' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 50 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Pong --seed 123 --learning_rate 6e-4 --log_to_wandb True; \
+nohup python ./train_atari.py --game 'Pong' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 50 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Pong --seed 231 --learning_rate 6e-4 --log_to_wandb True; \
+nohup python ./train_atari.py --game 'Pong' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 50 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Pong --learning_rate 1e-3 --seed 999 --log_to_wandb True &; \
+nohup python ./train_atari.py --game 'Seaquest' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Seaquest --seed 123 --learning_rate 6e-4 --log_to_wandb True
+nohup python ./train_atari.py --game 'Seaquest' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 500000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Seaquest --seed 231 --learning_rate 6e-4 --log_to_wandb True
+nohup python ./train_atari.py --game 'Seaquest' --data_dir_prefix /root/autodl-fs/.sys/tmp/data_atari/dqn_replay/ --context_length 30 --n_layer 6 --n_embd 128 --epochs 20 --batch_size 256 --num_steps 300000 --num_buffers 50 --trajectories_per_buffer 10 --output ./output/train --experiment dr_Seaquest --seed 666 --learning_rate 1e-3 --log_to_wandb True &' &
+
+### dr——gym
+
+nohup python experiment.py --env 'hopper' --dataset 'medium' --data_dir_prefix ./data/ --K 20 --model_type 'dr' --n_layer 3 --embed_dim 256 \
+        --activation_function 'gelu'\
+        --max_iters 20 \
+        --batch_size 64 \
+        --num_steps_per_iter 10000 \
+        --learning_rate 1e-5 \
+        --weight_decay 1e-5 \
+        --num_eval_episodes 100 \
+        --output ./outputs/dr_runs \
+        --experiment dr_hopper_medium_20_1e-5_ \
+        --seed 100 \
+        --log_to_wandb True &
